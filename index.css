@@ -1,0 +1,27 @@
+@import url("/normalize.css/normalize.css");
+
+body {
+	background-color: lightgreen;
+}
+
+body > *, form > * {
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+video {
+	float: right;
+	border: 5px green ridge;
+	background-color: black;
+	margin: 1.5em;
+	max-width: 50%;
+}
+
+form {
+	border: 5px blue ridge;
+	background-color: lightblue;
+}
+
+label {
+	display: block;
+}

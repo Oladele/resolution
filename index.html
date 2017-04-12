@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="index.css" />
+		<script>
+			var require = {
+				packages: [{
+					name: "domReady",
+					location: "/requirejs-domready",
+					main: "domReady"
+				}]
+			}
+		</script>
+		<script async data-main="index.js" src="/alameda/alameda.js"></script>
+	</head>
+	<body>
+		<p id="unserved-warning">WARNING: this page must be served by `npm start` in order to function correctly.</p>
+		<video preload></video>
+		<label>Select video: <input type="file" accept="video/*" /></label>
+		<!-- TODO: have a dropdown of supported destinations, each entry should display its own customized form. -->
+		<form enctype="multipart/form-data" method="post">
+			<input type="hidden" name="destination" value="losant" />
+			<label>Losant App ID: <input name="losantAppId" /></label>
+			<label>Losant App Access Token (for defining devices): <input name="losantAppToken" /></label>
+			<label>Losant App Key (for authenticating devices in order to send their data): <input name="losantAppKey" /></label>
+			<label>Losant App Secret (for proving we own the key): <input name="losantAppSecret" /></label>
+			<span>Data variants model: </span>
+			<label><input type="radio" name="dataPropertyModel" value="AS_DEVICES" /> as devices</label>
+			<label><input type="radio" name="dataPropertyModel" value="AS_FIELDS" /> as fields</label>
+			<label>Data to upload: <input type="file" name="0" accept="application/json, text/csv" /></label>
+			<label>Demo run-time (minutes): <input type="number" name="runTime" /></label>
+			<input type="submit" value="Begin upload to Losant" disabled />
+		</form>
+	</body>
+</html>
