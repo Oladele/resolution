@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<!-- BOOSTRAP -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<!-- BOOTSTRAP -->
 		<link rel="stylesheet" href="index.css" />
 		<script>
 			var require = {
@@ -15,22 +21,90 @@
 		<script async data-main="index.js" src="/alameda/alameda.js"></script>
 	</head>
 	<body>
-		<p id="unserved-warning">WARNING: this page must be served by `npm start` in order to function correctly.</p>
-		<video preload></video>
-		<label>Select video: <input type="file" accept="video/*" /></label>
-		<!-- TODO: have a dropdown of supported destinations, each entry should display its own customized form. -->
-		<form enctype="multipart/form-data" method="post">
-			<input type="hidden" name="destination" value="losant" />
-			<label>Losant App ID: <input name="losantAppId" /></label>
-			<label>Losant App Access Token (for defining devices): <input name="losantAppToken" /></label>
-			<label>Losant App Key (for authenticating devices in order to send their data): <input name="losantAppKey" /></label>
-			<label>Losant App Secret (for proving we own the key): <input name="losantAppSecret" /></label>
-			<span>Data variants model: </span>
-			<label><input type="radio" name="dataPropertyModel" value="AS_DEVICES" /> as devices</label>
-			<label><input type="radio" name="dataPropertyModel" value="AS_FIELDS" /> as fields</label>
-			<label>Data to upload: <input type="file" name="0" accept="application/json, text/csv" /></label>
-			<label>Demo run-time (minutes): <input type="number" name="runTime" /></label>
-			<input type="submit" value="Begin upload to Losant" disabled />
-		</form>
+		<div class="container">
+			
+			<!-- <p id="unserved-warning">WARNING: this page must be served by `npm start` in order to function correctly.</p> -->
+
+			<div class="card">
+			  <h3 class="card-header">ResultGrid Simulation File</h3>
+				
+				<div class="card-block">
+					<form>
+						<div class="form-group">
+					    <label for="selectVideo">Select video:</label>
+					    <input type="file" accept="video/*" class="form-control-file" id="selectVideo">
+					  </div>
+						<video preload></video>
+					</form>
+					<!-- TODO: have a dropdown of supported destinations, each entry should display its own customized form. -->
+				</div>  <!-- end Boostrap "card-block" -->
+			
+			</div><!-- end Boostrap "card" -->
+
+			<div class="card">
+			  <h3 class="card-header">IOT Platform Information</h3>
+				
+				<div class="card-block">
+
+					<form enctype="multipart/form-data" method="post">
+
+						<input type="hidden" name="destination" value="losant" />
+						
+						<div class="form-group">
+							<label>Losant App ID: </label>
+							<input class="form-control" name="losantAppId" />
+						</div>
+
+						<div class="form-group">
+							<label>Losant App Access Token (for defining devices)</label>
+							<input class="form-control" name="losantAppToken" />
+						</div>
+						
+						<div class="form-group">
+							<label>Losant App Key (for authenticating devices in order to send their data)</label>
+							<input class="form-control" name="losantAppKey" />
+						</div>
+						
+						<div class="form-group">
+							<label>Losant App Secret (for proving we own the key)</label>
+							<input class="form-control" name="losantAppSecret" />
+						</div>
+
+						<fieldset class="form-group">
+					    <legend>Data variants model</legend>
+					    <div class="form-check">
+					      <label class="form-check-label">
+					        <input type="radio" class="form-check-input" name="dataPropertyModel" value="AS_DEVICES">
+					        as devices
+					      </label>
+					    </div>
+					    <div class="form-check">
+					      <label class="form-check-label">
+					        <input type="radio" class="form-check-input" name="dataPropertyModel" value="AS_FIELDS">
+					        as fields
+					      </label>
+					    </div>
+
+				
+					  </fieldset>
+
+						<div class="form-group">
+					    <label>Data to upload:</label>
+					    <input type="file" name="0" accept="application/json, text/csv" class="form-control-file">
+					  </div>
+
+					  <div class="form-group">
+							<label>Demo run-time (minutes)</label>
+							<input class="form-control" type="number" name="runTime" />
+						</div>
+
+						<!-- <input type="submit" value="Begin upload to Losant" disabled /> -->
+						<button disabled type="submit" class="btn btn-primary">Begin upload to Losant</button>
+					</form>
+				</div>  <!-- end Boostrap "card-block" -->
+			
+			</div><!-- end Boostrap "card" -->
+
+		</div> <!-- end Boostrap "container" -->
 	</body>
 </html>
